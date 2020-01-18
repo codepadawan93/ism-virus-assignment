@@ -21,6 +21,8 @@ because 12H xor 52H = 40H.
 
 It was tested and it works flawlessly, though the antivirus still detects it (albeit as a different malware variant).
 
+[Infection]: https://github.com/codepadawan93/ism-virus-assignment/blob/master/Infection.JPG "Logo Title Text 2"
+
 2. Encryption
 
 ## Credits
