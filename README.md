@@ -2,54 +2,26 @@
 
 ASE ISM Virus/Antivirus Technologies term assignment
 
-## Build instructions
+## What I did
 
-In DOSBOX, use the following commands:
+1. For the initial obfuscation phase, I transformed the hardcoded hex digits into no ops via xor. So for instance:
 
-- change window size => including font size:
-- for Win7 in C:\Users\(active user name)\AppData\Local\DOSBox\dosbox-0.74.conf
-- for Win7 in C:\Users\CristianToma\AppData\Local\DOSBox\dosbox-0.74.conf - modify the following:
-
-```
-windowresolution=1024x768 # was: windowresolution=original
-output=ddraw # was: output=surface
-machine=ega # was: machine=svga_s3
+```asm
+mov ah,40H
 ```
 
-- the following ARE MANDATORY
-- use Alt+Enter for full-screen
-- mount
+became
 
-```
-e D:\VirtualMachines\DOSBox-0.74\FSysFAT
-e:
-dir
+```asm
+mov ah,12H
+xor ah,52H
 ```
 
-- change as it will be with replacement, but instead use chgcolor utility program from DOSBox 0.74:
-- right-click on standard cmd window - change black in white (Screen Background-255,255,255 (old black) + 0,0,0 (old white) + 255,255,255(old teal - RGB - 0,128,128)) & white in black(Screen Text-255,255,255 (old black) + 0,0,0 (old white))
-  `chgc\chgcolor.com 0:63 7:0 3:63 # read the doc from chgc director/folder`
+because 12H xor 52H = 40H.
 
-`chgc\chgcolor.com 7:63 3:63`
+It was tested and it works flawlessly, though the antivirus still detects it (albeit as a different malware variant).
 
-- restore color
-  `chgc\chgcolor.com`
-
-- 16 bits tools: compile with tasm; link with tlink; debug 16 bits app with td:
-
-```
-cd atv\p1_asm
-..\..\tasm\tasm.exe test.asm
-..\..\tasm\tlink.exe test.obj
-..\..\tasm\td.exe test.exe
-test.exe
-```
-
-- in the end
-
-```
-mount -u e
-```
+2. Encryption
 
 ## Credits
 
