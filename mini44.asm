@@ -27,5 +27,5 @@ SEARCH_LP:
     jmp SEARCH_LP
 DONE:
     ret ;exit to DOS
-COM_FILE DB "*.COM",0 ;string for COM file search
+COM_FILE DB '*.COM',0 ;string for COM file search
     END START
