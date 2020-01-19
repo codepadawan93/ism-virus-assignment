@@ -1,29 +1,21 @@
-# ism-virus-assignment
-
 ASE ISM Virus/Antivirus Technologies term assignment
 
-## What I did
+What I did
 
 1. I chose the virus mini44 because it is the simplest and easiest to debug.
 
 2. For the initial obfuscation phase, I transformed the hardcoded hex digits into no ops via xor. So for instance:
 
-```asm
 mov ah,40H
-```
 
 became
 
-```asm
 mov ah,12H
 xor ah,52H
-```
 
 because `12H xor 52H = 40H.`
 
-It was tested and it works flawlessly, though the antivirus still detects it (albeit as a different malware variant).
-
-![Infection](https://github.com//codepadawan93/ism-virus-assignment/blob/master/Infection.JPG?raw=true "Infection")
+It was tested and it works flawlessly,s though the antivirus still detects it (albeit as a different malware variant).
 
 Then, I added an uncoditional jump to the start of the real code. Afterwards I added useless instructions that will be never executed.
 
@@ -43,6 +35,6 @@ I fixed the issue by re-encrypting the instructions before writing them in the c
 
 According to Virus Total, a site suggested by some colleagues, it is detected by 18/56 of Antivirus software and, in some cases, correctly identified as a member of the "Trivial.44" family.
 
-## Credits
+Credits
 
 The implementation is lifted from "The Giant Black Book of Computer Viruses" by Mark Ludwig

