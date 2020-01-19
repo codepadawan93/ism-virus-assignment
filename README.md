@@ -17,13 +17,15 @@ mov ah,12H
 xor ah,52H
 ```
 
-because 12H xor 52H = 40H.
+because `12H xor 52H = 40H.`
 
 It was tested and it works flawlessly, though the antivirus still detects it (albeit as a different malware variant).
 
 ![Infection](https://github.com//codepadawan93/ism-virus-assignment/blob/master/Infection.JPG?raw=true "Infection")
 
-2. Encryption
+2. Then, I added an uncoditional jump to the start of the real code. Afterwards I added useless instructions that will be never executed.
+
+3. Encryption
 
 ## Credits
 

