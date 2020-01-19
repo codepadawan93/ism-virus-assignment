@@ -41,5 +41,9 @@ SEARCH_LP:
     jmp SEARCH_LP
 DONE:
     ret ;exit to DOS
+decrypt PROC
+    ; TODO::
+ENDP
 COM_FILE DB '*.COM',0 ;string for COM file search
+KEY DB 4FH
     END START
